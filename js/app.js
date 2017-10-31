@@ -74,19 +74,19 @@ Player.prototype.update = function(dt) {
 	if (this.y < 0) {
 		score += 1;
 		document.getElementById('playersScore').innerHTML = score;
-        player.reset();
+        this.reset();
 
     }
 	 
 	 //if player collides with enemy, game lost; reset the player
 	 allEnemies.forEach(function(enemy) {
-		if(enemy.x < player.x + 50 && enemy.x + 50 > player.x 
-		   && enemy.y < player.y + 25 && 25 + enemy.y > player.y){
+		if(enemy.x < this.x + 50 && enemy.x + 50 > this.x 
+		   && enemy.y < this.y + 25 && 25 + enemy.y > this.y){
 			 score = 0;
 			 document.getElementById('playersScore').innerHTML = score;
-			 player.reset();
+			 this.reset();
 		 }
-	 });
+	 }, this);
 	 
 };
 
